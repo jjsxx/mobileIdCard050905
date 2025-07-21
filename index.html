@@ -53,18 +53,72 @@
             padding-left: 50px; /* 문구 간 간격 */
         }
 
-        .click-area {
-            width: 383px;
-            height: 66px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border-radius: 10px;
-            position: absolute;
-            top: 70%; 
-            left: 37%;
-        }
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      position: relative;
+      font-family: sans-serif;
+    }
+
+    /* 팝업 배경 */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    /* 팝업 상자 */
+    .popup-box {
+      position: relative;
+      background-color: white;
+      padding: 30px 20px 20px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      width: 300px;
+      text-align: center;
+    }
+
+    /* X 닫기 버튼 */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #888;
+    }
+
+    .close-btn:hover {
+      color: #000;
+    }
+
+    /* 클릭할 공간 */
+    .click-area {
+      width: 383px;
+      height: 66px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
     
         @keyframes marquee {
             from {
@@ -77,8 +131,26 @@
 </style>
 
 <body>
+    <div class="click-area" onclick="openPopup()">
+    </div>
     
-<div class="click-area" onclick="location.href='https://example.com';">
+        <div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <button class="close-btn" onclick="closePopup()">✕</button>
+    <p>김민승</p>
+    <p>050905-3170511</p>
+  </div>
+</div>
+    
+    <script>
+  function openPopup() {
+    document.getElementById("popup").style.display = "flex";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
 
 <div class="container">
     <img src="mobileIdCard050905.jpg" width="25">
