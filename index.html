@@ -67,6 +67,7 @@
       transform: translate(-50%, -50%);
       width: 330px;
       height: 50px;
+      background-color: rgba(76, 175, 80, 0.6);
       color: white;
       font-weight: bold;
       display: flex;
@@ -125,15 +126,15 @@
   <img src="mobileIdCard050905.jpg" alt="신분증 이미지">
 
   <!-- 클릭 가능한 영역 (70% 위치) -->
-  <div class="click-area" onclick="openPopup()"></div>
+  <div class="click-area" onclick="openPopup()">여기 클릭</div>
 
   <!-- 팝업 오버레이 -->
   <div class="popup-overlay" id="popup">
     <div class="popup-box">
       <button class="close-btn" onclick="closePopup()">✕</button>
       <p>김민승</p>
-        <p>050905-3170511</p>
-        <p>경기도 성남시 중원구 제일로 63</p>
+      <p>050905-3170511</p>
+      <p>경기도 성남시 중원구 제일로 63</p>
     </div>
   </div>
 
