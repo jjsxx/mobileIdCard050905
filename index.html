@@ -68,7 +68,6 @@
             transform: translate(-50%, -50%);
             width: 330px;
             height: 50px;
-            background-color: rgba(76, 175, 80, 0.6); /* 반투명 초록 */
             color: white;
             display: flex;
             justify-content: center;
@@ -126,13 +125,71 @@
     <img src="mobileIdCard050905.jpg" alt="신분증 이미지">
 
     <!-- 클릭할 공간 -->
-    <div class="click-area" onclick="openPopup()">여기 클릭</div>
+    <div class="click-area" onclick="openPopup()"></div>
 
     <!-- 팝업 오버레이 -->
     <div class="popup-overlay" id="popup">
         <div class="popup-box">
             <button class="close-btn" onclick="closePopup()">✕</button>
-            <p>이것은 팝업 창입니다!</p>
+            <p>김민승</p>
+            <p>050905-3170511</p>
+            <p>경기도 성남시 주        /* 팝업 오버레이 */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* 팝업 박스 */
+        .popup-box {
+            position: relative;
+            background-color: white;
+            padding: 25px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            width: 280px;
+            text-align: center;
+        }
+
+        /* X 닫기 버튼 */
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close-btn:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="mobileIdCard050905.jpg" alt="신분증 이미지">
+
+    <!-- 클릭할 공간 -->
+    <div class="click-area" onclick="openPopup()"></div>
+
+    <!-- 팝업 오버레이 -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup-box">
+            <button class="close-btn" onclick="closePopup()">✕</button>
+            <p>김민승</p>
+            <p>050905-3170511</p>
+            <p>경기도 성남시 중원구 성남도 제일로 63</p>
         </div>
     </div>
 
