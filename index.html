@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>모바일 주민등록증 확인서비스</title>
-</head>
-<style>
+    <style>
 
         .container {
             position: relative;
@@ -32,15 +31,14 @@
             font-weight: bold;
         }
 
-         .rolling-bg {
+        .rolling-bg {
             position: absolute;
             top: 92.5%;
             left: 0;
             width: 100%;
-            height: 40px; /* 기존보다 조금 더 높은 배경 */
+            height: 40px;
             background-color: #1E3A8A;
             opacity: 0.9;
-
         }
 
         .marquee-wrapper {
@@ -50,9 +48,9 @@
         }
 
         .marquee-text {
-            padding-left: 50px; /* 문구 간 간격 */
+            padding-left: 50px;
         }
-    
+
         @keyframes marquee {
             from {
                 transform: translateX(-50%);
@@ -61,12 +59,84 @@
                 transform: translateX(0%);
             }
         }
-</style>
 
+        /* 클릭 가능한 위치 박스 */
+        .click-area {
+            position: absolute;
+            top: 79%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 383px;
+            height: 66px;
+            background-color: rgba(76, 175, 80, 0.6); /* 반투명 초록 */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        /* 팝업 오버레이 */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* 팝업 박스 */
+        .popup-box {
+            position: relative;
+            background-color: white;
+            padding: 25px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            width: 280px;
+            text-align: center;
+        }
+
+        /* X 닫기 버튼 */
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close-btn:hover {
+            color: #000;
+        }
+    </style>
+</head>
 <body>
 
 <div class="container">
-    <img src="mobileIdCard050905.jpg" width="25">
+    <img src="mobileIdCard050905.jpg" alt="신분증 이미지">
+
+    <!-- 클릭할 공간 -->
+    <div class="click-area" onclick="openPopup()">여기 클릭</div>
+
+    <!-- 팝업 오버레이 -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup-box">
+            <button class="close-btn" onclick="closePopup()">✕</button>
+            <p>이것은 팝업 창입니다!</p>
+        </div>
+    </div>
+
+    <!-- 하단 롤링 영역 -->
     <div class="rolling-bg"></div>
     <div class="rolling-text">
         <div class="marquee-wrapper">
@@ -76,5 +146,15 @@
     </div>
 </div>
 
+<script>
+    function openPopup() {
+        document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+
 </body>
-</html>    
+</html>
